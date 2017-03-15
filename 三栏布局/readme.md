@@ -1,4 +1,6 @@
+
 ﻿# 本练习来自图解CSS第八章
+
 
 * 使用最新的标准，通过使用autoprefixer这个sublime text插件，来实现自动增加其他浏览器私有属性的功能。
 
@@ -11,5 +13,7 @@
 	align-items:stretch;//侧轴对齐方式
 	
 
+
 * https://gist.github.com/zhangolve/0c44a4228d8c15da9861452f8639d25e
+
 	
