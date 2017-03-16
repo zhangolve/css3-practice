@@ -53,7 +53,7 @@ body {
     </div>
 </body>
 <script>
-console.log('start');
+
 //  both chrome and ie and opera support but firefox don't support
 /*
 first try using mousewheel  
@@ -107,6 +107,9 @@ function  scroll() { // or window.addEventListener("scroll"....
         if (top < 0) {
             var header = document.getElementById('header');
             header.style.display = 'none';
+            /*在这里要注意一点的是，如果直接在控制台打印 header.style里面的内容，那么这里面的内容能够并不是实际设置的
+			css中的样式，不过这并没有关系，我们仍然可以直接设置el.style.something 来改变规定的样式。
+             */
         }
     } else {
         if (top > 70) {
