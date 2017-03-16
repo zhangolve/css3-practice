@@ -1,67 +1,139 @@
 <!--start-->
+<!--经过测试，本示例在firefox，chrome，ie9+ 上都有效  -->
+<!--原本使用header标签，但是IE8 显然并不支持-->
 <!Doctype html>
+<style type="text/css">
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: blue;
+    height: 1200px;
+}
+
+#header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 75px;
+    background-color: yellow;
+    display: block;
+}
+
+.main {
+    margin-top: 75px;
+}
+</style>>
 <html>
-<style>
-html{
-	margin: 0px;
-	padding: 0px;
-}
-body{
-	background-color:blue; 
-	height: 1200px;
-}
-header{
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	right: 0px;
-	width: 100%;
-	height: 75px;
-	background-color: yellow;
-}
-.main{
-	margin-top: 75px;
-}
-</style>
+
 <body>
-<header>
-header
-</header>
-<div  class="main">
-<div>
-
-eee
-</div>
-<div>
-
-eee
-</div>
-<div>
-
-eee
-</div>
-<div>
-
-eee
-</div>
-<div>
-
-eee
-</div>
-</div >
-
+    <div id="header">
+        header
+    </div>
+    <div class="main">
+        <div>
+            main
+        </div>
+        <div>
+            A
+        </div>
+        <div>
+            B
+        </div>
+        <div>
+            C
+        </div>
+        <div>
+            D
+        </div>
+    </div>
 </body>
 <script>
 console.log('start');
-document.onmousewheel=function(e){ 
-	console.log(e)
-}
-document.onwheel=function(e){ 
-	console.log(e.detail)
-}
-window.addEventListener('DOMMouseScroll',function(e){
-	console.log(e);
+//  both chrome and ie and opera support but firefox don't support
+/*
+first try using mousewheel  
+document.addEventListener('mousewheel', function(e) {
+    console.log(e.wheelDelta)
 })
 
+*/
 
+//firefox and chrome both support but ie not
+
+// 当发生滚动事件时，监听wheel事件，得到的clientX,clientY值指的是鼠标当前所在位置。并不符合我们想要判断滚动的条件.
+/*
+document.onwheel=function(e){ 
+	if(e.wheelDelta)
+	{             
+	console.log(e.clientY)  //because firefox don't have the attr of wheelDelta
+	}
+	else{
+	console.log(e.clientY);
+	}
+}
+*/
+
+var lastScrollTop = 0;
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+
+//http://stackoverflow.com/questions/1350581/how-to-get-an-elements-top-position-relative-to-the-browsers-window
+//红宝书 P324 对此也有详细的介绍。
+// get the relative position
+if(document.addEventListener)
+{
+document.addEventListener("scroll",scroll , false);
+}
+else{
+document.onscroll=scroll();
+}
+
+function  scroll() { // or window.addEventListener("scroll"....
+    console.log('success');
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    var main = document.querySelector('.main');
+    var viewportOffset = main.getBoundingClientRect();
+    // these are relative to the viewport, i.e. the window
+    var top = viewportOffset.top;
+
+    if (st > lastScrollTop) {
+        //console.log('down');
+        // downscroll code
+        // 通过改变display属性的值来改变头部header
+        if (top < 0) {
+            var header = document.getElementById('header');
+            header.style.display = 'none';
+        }
+    } else {
+        if (top > 70) {
+            var header = document.getElementById('header');
+            header.style.display = 'block';
+        }
+        // upscroll code
+    }
+    lastScrollTop = st;
+}
+
+
+//  http://stackoverflow.com/questions/31223341/javascript-detecting-scroll-direction
+// 监听scroll 时的判断方向
+/*
+var lastScrollTop = 0;
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+element.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+   if (st > lastScrollTop){
+       // downscroll code
+   } else {
+      // upscroll code
+   }
+   lastScrollTop = st;
+}, false);
+
+
+*/
 </script>
