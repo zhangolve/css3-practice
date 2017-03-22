@@ -16,4 +16,8 @@
 
 * https://gist.github.com/zhangolve/0c44a4228d8c15da9861452f8639d25e
 
+上面的这个gist 的布局并不适用于IE10及以下。所以还应该对之有所修改。
+
+
+
 	
