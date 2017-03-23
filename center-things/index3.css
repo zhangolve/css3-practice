@@ -1,0 +1,29 @@
+.container{
+  width:500px;
+  height:500px;
+  border:1px solid blue;
+  
+}
+.inner{
+  width:100px;
+  height:100px;
+  border:1px solid blue;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/*
+这种方法，我们无需知道外层容器的具体大小
+
+探究一下，为了方便 ，我们把外层容器的宽高设置为了500px，将内层容器宽高设置为了100px。我们看到，当设置top,left为50%，时，
+这个时候内层容器的左上角坐标相对于外层容器应该是（500×0.5，500×0.5），而理想的坐标位置
+应该是（（500-100）/2，（500-100）/2），也就是（200，200），这两者之前的差值实际上就是内层容器的一半（100×0.5，100×0，5），
+因此这个时候我们使用了transform: translateX(-50%) translateY(-50%);补回来，
+这里需要注意的是，在内层容器里百分比也是相对于内层容器而言的。
+
+这种方法存在兼容性的问题，由于transform这个属性是在css3里面出现的，不支持ie10以下的浏览器。
+
+
+*/

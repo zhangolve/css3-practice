@@ -1,0 +1,22 @@
+.container{
+  width:400px;
+  height:400px;
+  border:1px solid blue;
+  
+}
+.inner{
+  width:100px;
+  height:100px;
+  border:1px solid blue;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+/*
+这种方法相对于前三种方法的优点是他的兼容性更好，由于没有使用transform属性，
+缺点则是与前两种方法一样，要有相应的计算，不过好在这里计算的是内层容器的大小，我们是可以控制的。
+
+*/
