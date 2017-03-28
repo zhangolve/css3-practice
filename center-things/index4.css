@@ -1,15 +1,11 @@
-.container{
-  width:400px;
-  height:400px;
-  border:1px solid blue;
-  
-}
+
+
 .inner{
   width:100px;
   height:100px;
   border:1px solid blue;
   position: relative;
-  top: 50%;
+  top: 300px;
   left: 50%;
   margin-left: -50px;
   margin-top: -50px;
@@ -18,5 +14,8 @@
 /*
 这种方法相对于前三种方法的优点是他的兼容性更好，由于没有使用transform属性，
 缺点则是与前两种方法一样，要有相应的计算，不过好在这里计算的是内层容器的大小，我们是可以控制的。
+在这里，我们给定了top具体值，而给left的是百分比，这是因为给定left之后，能够实现水平居中,
+但是如果父容器没有具体值的话，却不能实现垂直居中，因此，我们给top一个具体值。
+
 
 */
