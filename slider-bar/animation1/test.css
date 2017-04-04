@@ -63,6 +63,14 @@ width: 40px;
  
 
 }
+
+.slider-content{
+	opacity: 0;
+}
+
+
+
+
 /*给这个slider  再多加两个类，hidden和show，然后用js来判断，删除和去掉就ok了*/
 .hidden{
 	animation: left-in .3s ease-in;

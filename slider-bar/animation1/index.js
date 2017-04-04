@@ -1,11 +1,18 @@
 var bars=document.querySelector('.fa-bars-1');
 var bars2=document.querySelector('.fa-bars-2');
 var slider=document.querySelector('.slider');
+var sliderText =document.querySelector('.slider-content');
+
+/*显示侧边栏 */
 bars.onclick=function(){
 
 	slider.classList.remove("show");
 	slider.classList.add("hidden");
 	slider.style.visibility="visible";
+	/*设置一个效果 ，文字展示*/
+	setTimeout(()=>sliderText.classList.remove('slider-content'),500);
+	
+
 
 }
 
@@ -13,6 +20,7 @@ bars2.onclick=function(){
 	
 	slider.classList.remove("hidden");
 	slider.classList.add("show");
+	setTimeout(()=>sliderText.classList.add('slider-content'),100);
 	setTimeout(function(){slider.style.visibility="hidden"},300 )  
 
 }
