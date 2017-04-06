@@ -1,0 +1,20 @@
+h1{
+	color: blue;
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+/*
+虽然，color;blue由于优先级的问题没有作用成功，但是并不妨碍其他两项的作用。
+
+再总结一下；
+
+内联>内嵌>外联
+
+important是个例外
+
+能够覆盖一个important的，是下一个important
+
+important>id>class>tag
+
+*/
