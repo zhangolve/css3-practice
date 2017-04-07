@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<!--注意有没有下面这一行的区别 -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+	<title>左右不等高布局</title>
+	<style type="text/css">
+		html{
+			background-color: #ffffff;
+
+		}
+		.container{
+			display: flex;
+			
+		}
+		.left{
+			width: 30%;
+			
+			line-height: 18px;
+			font-size: 16px;
+
+		}
+		.left-inner{
+			background-color: red;
+		}
+		.right{
+			flex: 1;
+		}
+		button{
+			height: 18px;
+		}
+
+		
+	</style>
+</head>
+
+<body>
+
+<div class="container" >
+<div class="left">
+<div class="left-inner">
+left 
+<button>button</button>
+</div>
+ </div>
+<div class="right"> 
+right
+<button>button</button>
+<button>button</button>
+<button>button</button>
+<button>button</button>
+<button>button</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+<!--
+从这个例子我们看到，flexbox布局的左右两边一定是等高的
+当我们想要实现如这个例子中所说，不等高的情况的时候。
+我们可以采取一个折中的方法，
+比如给left div内嵌一个div，然后对内嵌的div元素设置他的一些属性，比如背景颜色等
+进行区分。
+
+
+
+-->

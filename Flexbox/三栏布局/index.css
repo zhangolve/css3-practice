@@ -1,0 +1,66 @@
+body{
+	/*height: 100%;*/
+	height: 1000px; /*设置一个固定的高度，用于布局*/
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	        /*
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	*/
+
+}
+header,footer{
+	width: 100%;
+	border: 1px solid black;
+	height: 100px;
+}
+
+section{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+
+	        /*这里的flex是相对于外层容器body而言的*/
+}
+
+.left{
+	width: 200px;
+	border: 1px solid black;
+	background-color: blue;
+	-webkit-box-ordinal-group: 2;
+	    -ms-flex-order: 1;
+	        order: 1;
+}
+
+
+.right{
+	width: 200px;
+	border: 1px solid black;
+	background-color: blue;
+	-webkit-box-ordinal-group: 4;
+	    -ms-flex-order: 3;
+	        order: 3;
+}
+
+.main{
+	width: 60%;
+	height: 100%;
+	background-color: yellow ;
+	-webkit-box-ordinal-group: 3;
+	    -ms-flex-order: 2;
+	        order: 2;
+	        -webkit-box-flex: 1;
+	            -ms-flex: 1;
+	                flex: 1;
+}
