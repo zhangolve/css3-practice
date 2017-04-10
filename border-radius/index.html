@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--使用border-radius属性来制作全圆，半圆，四分之一圆，五分之一圆-->
+<html>
+<head>
+	<title>deep into border-radius </title>
+</head>
+<style type="text/css">
+	.common{
+	
+		
+		border: 1px solid red;
+		background-color: red;
+	}
+	.circle{
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+	}
+	.half-circle{
+		border-radius: 100px 100px 0 0 ;
+		width: 100px;
+		height: 50px;
+	}
+	.second-half-circle{
+		border-radius: 0 0 100px 100px ;  
+		width: 100px;
+		height: 50px;
+	}
+	.left-half-circle{
+		width: 50px;
+		height: 100px;
+		border-radius: 50px 0 0 50px ;
+	}
+	.quarter-circle{
+		width: 100px;
+		height: 100px;
+		border-radius: 100px 0 0 0 ;  
+	}
+	.fifth-circle{
+		width: 100px;
+		height: 100px;
+		border-radius: 75px 0 0 0 ;  
+	}
+	.heartLeft{
+			width: 0;
+			height: 0;
+			border-color: red;
+			border-style: dotted;
+			border-width: 0 40px 40px 0;
+		}
+	
+
+</style>
+<body>
+<div>全圆</div>
+<div class="circle common"></div>
+<div>上半圆</div>
+<div class="half-circle common "></div>
+
+<div>下半圆</div>
+<div class="second-half-circle common "></div>
+
+<div>左半圆</div>
+
+<div class="left-half-circle common "> </div>
+
+<div> 四分之一圆</div>
+
+<div class="quarter-circle common"> </div>
+
+
+</body>
+</html>
+
+
+<!--
+https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+border-radius 细分的话有四个属性，前两个控制上面，后两个控制下面
+从第一个值到第四个值分别是左上，右上，右下，左下，这样四个角
+我们做半圆，也是对需要有角的方位赋值
+
+四分之一圆的情况下，也是找对应的角，其他的角设为0
+http://www.w3cplus.com/css3/designing-simple-pie-charts-with-css.html
+
+-->
