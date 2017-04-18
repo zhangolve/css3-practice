@@ -1,0 +1,53 @@
+#square {
+     width: 400px;
+     height:400px;
+     background-color: red;
+		 position: relative;
+		 left: 20%;
+ }
+
+ #tran{
+ 	width: 200px;
+ 	height: 200px;
+
+
+ }
+ .left{
+	width: 0;
+	height: 0;
+	border-top: 100px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 100px solid transparent;
+	}
+	
+	.bottom {
+	width: 0;
+	height: 0;
+	border-right: 100px solid transparent;
+	border-left: 100px solid transparent;
+	border-bottom: 100px solid blue;
+	position: relative;
+	top: -100px;
+	}
+	.right {
+	width: 0;
+	height: 0;
+	border-right: 100px solid yellow;
+	border-top: 100px solid transparent;
+	border-bottom: 100px solid transparent;
+	position: relative;
+	top: -300px;
+	left: 100px;
+	
+	}
+	.top {
+	width: 0;
+	height: 0;
+	border-right: 100px solid transparent;
+	border-top: 100px solid green;
+	border-left: 100px solid transparent;
+	position: relative;
+	top: -500px;
+
+	
+	}
