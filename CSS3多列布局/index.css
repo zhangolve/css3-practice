@@ -1,0 +1,27 @@
+.wrapper{
+	background-color: yellow;
+	-webkit-column-count: 4;
+	   -moz-column-count: 4;
+	        column-count: 4;
+/* 	-webkit-column-width: 30%;
+	   -moz-column-width: 30%;
+	        column-width: 30%; 
+这样的语法是无效的
+	        */
+	        -webkit-column-gap: 30px;
+	           -moz-column-gap: 30px;
+	                column-gap: 30px;
+	        font-size: 20px;
+	        width: 100%;
+	        -webkit-column-rule: 2px dashed #ccc;
+	           -moz-column-rule: 2px dashed #ccc;
+	                column-rule: 2px dashed #ccc;
+
+}
+
+h1{
+text-align: center;
+text-justify: auto;
+text-decoration: underline;
+
+}
