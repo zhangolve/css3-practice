@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 仿简书过渡动画 </title>
+</head>
+<style type="text/css">
+	.tran-1{
+		width: 400px;
+
+	}
+	.tran-2{
+		width: 300px;
+	}
+	.tran-3{
+		width: 200px;
+	}
+	.tran{
+		border: 1px solid black;
+		height: 40px;
+		margin: 20px;
+		background-color: gray;
+		animation:width-change 2.0s ease-in;;
+	}
+	@keyframes width-change {
+		0% {width:0%}
+		25% {width:50%}
+		50% {width:100%}
+ 		75% {width:50%}
+ 		100% {width:0%}
+		
+	}
+
+</style>
+<body>
+	<div class="animate">
+	<div class="tran-1">
+	<div class=" tran"></div>
+	</div>
+	<div class="tran-2">
+	<div class="tran"></div>
+		</div>
+	<div class="tran-3">
+	<div class="tran"></div>
+	</div>
+	</div>
+
+</body>
+</html>
