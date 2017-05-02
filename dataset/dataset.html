@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> dataset demo </title>
+</head>
+<body>
+<table id="table">
+	<thead>
+		<td>性别</td>
+		<td>年龄</td>
+		<td>姓名</td>
+	</thead>
+<tbody>
+		<tr>
+		<td >男</td>
+		<td data-age="18" >18 </td>
+		<td>zhangolve</td>
+		</tr>
+			<tr>
+		<td>女</td>
+		<td data-age="19" >19</td>
+		<td>shakira</td>
+		</tr>
+			<tr>
+		<td>女</td>
+		<td data-age="20" >20</td>
+		<td>thera</td>
+		</tr>
+			
+
+	</tbody>
+</table>
+<script type="text/javascript">
+	var table=document.getElementById('table');
+			table.onclick=function(e){
+				
+				console.log(e.target.dataset.age);
+			}
+
+</script>
+</body>
+</html>
