@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>this is a test for audio api </title>
+</head>
+
+<body>
+    <h1>this is a test</h1>
+    <video src="test.mp4" id="myvideo" width="800px" height="400px" autoplay controls></video>
+    <button id="back">快退3秒</button>
+    <button id="forward">快进3秒</button>
+    <button id="restart">重新开始</button>
+    <script>
+        let video = document.getElementById('myvideo');
+        let forward = document.getElementById('forward');
+        let back = document.getElementById('back');
+        let restart = document.getElementById('restart');
+        forward.addEventListener('click', function () {
+            console.log(video.currentTime);
+            video.currentTime += 3;
+        });
+        back.addEventListener('click', function () {
+            console.log(video.currentTime);
+            video.currentTime -= 3;
+        });
+        restart.addEventListener("click", function () {
+            console.log('restart');
+            video.currentTime = 0;
+            video.play();
+        });
+    </script>
+</body>
+
+</html>
+
+<!--
+http://know.webhek.com/html5/html5-video-audio.html
+
+https://msdn.microsoft.com/en-us/library/hh924823(v=vs.85).aspx
+
+接下来希望能够做到通过鼠标来控制快进和快退
+
+
+-->
