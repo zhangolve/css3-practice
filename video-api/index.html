@@ -17,18 +17,25 @@
         let back = document.getElementById('back');
         let restart = document.getElementById('restart');
         forward.addEventListener('click', function () {
-            console.log(video.currentTime);
             video.currentTime += 3;
         });
         back.addEventListener('click', function () {
-            console.log(video.currentTime);
             video.currentTime -= 3;
         });
         restart.addEventListener("click", function () {
-            console.log('restart');
             video.currentTime = 0;
             video.play();
         });
+       video.focus();
+       //arrow keys are only triggered by onkeydown, not onkeypress
+       document.addEventListener('keydown',function(e){
+           if(e.keyCode==37){
+                video.currentTime -= 3;
+           }
+           if(e.keyCode==39){
+               video.currentTime+=3;
+           }
+       })
     </script>
 </body>
 
@@ -42,4 +49,34 @@ https://msdn.microsoft.com/en-us/library/hh924823(v=vs.85).aspx
 接下来希望能够做到通过鼠标来控制快进和快退
 
 
+javsex
+
+
+// ==UserScript==
+// @name         forward-and-back
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://javsex.net/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    setTimeout(function(){
+     var video = document.getElementsByTagName('video')[0];
+    console.log(video);
+        document.addEventListener('keydown',function(e){
+            if(e.keyCode==37){
+                video.currentTime -= 60;
+            }
+            if(e.keyCode==39){
+                video.currentTime+=60;
+            }
+        });
+    },8000);
+    
+    // Your code here...
+})();
 -->
