@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=UTF-8>
+    <title>背景重叠 撕名牌效果</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+</head>
+<style>
+#n1 {
+    background-image:  url(http://7ktu2f.com1.z0.glb.clouddn.com/zhou-y-p-lr.jpg);
+    width:100vw;
+    height:100vh;
+    position:relative;
+    top:0;
+    left :0;
+    z-index: 100;
+}
+
+#n2 {
+   background-image: url(http://7ktu2f.com1.z0.glb.clouddn.com/papers-l-hr_t4uffds.jpg);
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+    top:0;
+    left :0;
+    z-index: -100;
+}
+#n3 {
+    height:100vh;
+}
+</style>
+<body>
+    <div id="n1"> </div>
+    <div id="n2"> </div>
+    <div id="n3">
+
+        hello world
+        are you ok
+    </div>
+</body>
+</html>
+
+<!--
+    inspired by 
+    http://www.bbc.com/zhongwen/resources/idt-sh/Thoughts_Chairman_Xi_chinese?ocid=socialflow_twitter
+-->
