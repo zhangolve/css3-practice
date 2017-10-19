@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=UTF-8>
+    <title>背景重叠 撕名牌效果</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+</head>
+<style>
+#n1 {
+    background-image:  url(http://7ktu2f.com1.z0.glb.clouddn.com/zhou-y-p-lr.jpg);
+    width:100vw;
+    height:100vh;
+    position:relative;
+    top:0;
+    left :0;
+    z-index: 100;
+}
+
+#n2 {
+   background-image: url(http://7ktu2f.com1.z0.glb.clouddn.com/papers-l-hr_t4uffds.jpg);
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+    top:0;
+    left :0;
+    z-index: -100;
+}
+#n3 {
+    height:100vh;
+}
+</style>
+<body>
+    <div id="n1"> </div>
+    <div id="n2"> </div>
+    <div id="n3">
+
+        hello world
+        are you ok
+    </div>
+</body>
+</html>
+
+<!--
+    inspired by 
+    http://www.bbc.com/zhongwen/resources/idt-sh/Thoughts_Chairman_Xi_chinese?ocid=socialflow_twitter
+    在这里要注意#n1 上面不应该使用绝对定位，在这个时候第一个图片#n1还应该是留在文档流之中的。
+    是不是留在文档流之中，这一点很关键。
+    另外，如果使用绝对定位，这个nearest positioned ancestor 是body ，结果就起到了fixed 的效果。
+-->
