@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=UTF-8>
+    <title>背景重叠 撕名牌效果</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+</head>
+<style>
+#n1 {
+    position: absolute;
+    top:0;
+    left :0;
+}
+
+#n2 {
+   position: fixed;
+    bottom: 10px;
+    left :0;
+}
+#n3 {
+    height:100vh;
+    position:relative;
+    top:50px;
+    left:20%;
+}
+#wrapper {
+    position: relative;
+    top: 0;
+    left:50px;
+}
+</style>
+<body>
+    <div id="wrapper">
+    <div id="n1"> how are you  </div>
+    </div>
+    <div id="n2"> hello world
+        are you ok </div>
+    <div id="n3">
+        I am fine 
+    </div>
+</body>
+</html>
+
+<!--
+
+-->
