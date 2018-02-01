@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>test remember scroll position</title>
+        <meta name="HandheldFriendly" content="True">
+        <meta name="apple-itunes-app" content="app-id=1126255323" />
+        <meta http-equiv="cleartype" content="on">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="email=no" />
+        <link rel="apple-touch-icon-precomposed" href="{{ static_url('mobile/img/mobile-app.png') }}">
+        <link rel="shortcut icon" href="{{ static_url('mobile/img/mobile-app.png') }}">
+        <link rel="canonical" href="https://www.lijiababy.com.cn">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content=>
+        <meta name="screen-orientation" content="portrait">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-orientation" content="portrait">
+        <meta name="x5-fullscreen" content="true">
+    </head>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            /*overflow-y:hidden;*/
+        }
+        #container-wrapper {
+            overflow-x:hidden;
+            overflow-y: auto;
+        }
+        #container {
+            min-height: 100%;
+            position:relative;
+            min-height: 100%;
+        }
+        .loading-wrapper {
+            display: none;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.05);
+            text-align: center;
+            /*height: 100%;*/
+            width: 10rem;
+            z-index: 9999;
+        }
+        .brand-product-list {
+            height:3000px;
+            /*min-height:100%;*/
+        }
+    </style>
+    <body >
+    <div id="container-wrapper" style="overflow-y: auto;overflow-x: hidden"></div>
+   <div id="container">
+    <div id="brand-products-page">
+        <div class="loading-wrapper"></div>
+        <div class="brand-product-list">
+       
+        </div>
+        </div>   
+    </div>
+    </body>
+    <script>
+       var loading =  document.getElementsByClassName("loading-wrapper")[0];
+       var list = document.getElementsByClassName("brand-product-list")[0];
+    //    setTimeout(function(){
+    //     loading.style.display = 'none';
+    //     list.style.display = 'block';
+    //    },3000)
+     setTimeout(function(){
+        // loading.style.display = 'none';
+        // list.style.display = 'block';
+        list.innerHTML = " <div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div><div>hello world</div>"+" <div>hello world</div>"+" <div>hello world</div>"
+       },1000)
+    </script>
+</html>
+
+<!--浏览器本身带有一些特性，能够支持记住滚动位置，这个可以通过修改history.scrollRestoration = 'manual'; 这个属性来设置。-->
+<!--浏览器会判断原始的html网页（也就是没有经过任何js插入节点之前的html网页，可以通过查看网页源代码来查看）
+，如果网页的高度是大于上次滚动到的位置的，则会去尝试着自动滚动到上次滚动到的位置，否则，则仍然会在top的位置。
+而之后再通过js来插入html节点也没有关系，因为已经滚动到了这个位置，随时等候内容的补充。
+如此看来，也能够看出来ssr也是有他的好处，有他的用武之地的，不光只是说对SEO有好处了。
+<div id="container-wrapper" style="overflow-y: auto;overflow-x: hidden;height:80000px"></div>
+body:overflow-y: hidden; 注释掉，改变这两个CSS，就可以改善很多了。但是还是会由于react的单页面，react-router等原因，造成当进入下一个页面的时候，
+浏览器认为是同一个页面，再次进入滚动记忆之中，结果就很不爽了。
+
+-->

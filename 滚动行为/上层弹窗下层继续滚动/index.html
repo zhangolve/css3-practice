@@ -1,0 +1,108 @@
+<html >
+    <body>
+        <style>
+            #modal {
+                position:fixed;
+                background-color:aqua;
+                top: 20%;
+                height: 80%;
+                width:100%;
+            }
+            #modal-wrapper {
+                position:fixed;
+                z-index:9999;
+                height:100%;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+            }
+            body.modal-opened {
+                overflow: hidden;
+                height:100%;
+            }
+        </style>
+        <div id="content">
+            <button onclick="alert('success')"> click here</button>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <div>hello world</div>
+            <button id="open"> open modal </button>
+        </div>
+        <div id="modal-wrapper" style="display:none">
+        <div id="modal">
+            hello world
+            <button id="close"> close modal </button>
+        </div>
+        </div>
+        
+    </body>
+    <script>
+    var openEl = document.getElementById('open');
+    var modalEl = document.getElementById('modal-wrapper');
+    var closeEl = document.getElementById('close');
+    openEl.onclick=function() {
+        modalEl.style.display='block';
+        document.body.classList.add('modal-opened')
+    }
+    closeEl.onclick=function(){
+        modalEl.style.display='none';
+        document.body.classList.remove('modal-opened')
+    }
+    </script>
+</html>
+
+<!--
+1 使用蒙层，可以禁掉原来的点击行为，使点击不能成功
+2 即便是有蒙层，但是还是不能够做到让下面的层 overflow，只有改变整个body的overflow属性才能够禁止滚动
+3 打开弹窗，关闭弹窗的逻辑本身十分简单，但是滚动是一个比较有意思的点。
+-->
