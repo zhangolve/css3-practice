@@ -6,8 +6,16 @@
 </head>
 
 <body>
+    <style>
+        #forward ,#back,#restart{
+            position: relative;
+            left: -750px;
+            top: -20px;
+        }
+
+    </style>
     <h1>this is a test</h1>
-    <video src="test.mp4" id="myvideo" width="800px" height="400px" autoplay controls></video>
+    <video src="test.mp4" id="myvideo" width="800px" height="400px" autoplay ></video>
     <button id="back">快退3秒</button>
     <button id="forward">快进3秒</button>
     <button id="restart">重新开始</button>
@@ -43,41 +51,10 @@
 </html>
 
 <!--
-http://know.webhek.com/html5/html5-video-audio.html
 
-https://msdn.microsoft.com/en-us/library/hh924823(v=vs.85).aspx
-
-接下来希望能够做到通过鼠标来控制快进和快退
-
-
-javsex
+2018.02.07
+通过移除掉原来的controls 的元素，包括进度条，开始，暂停，声音调节等，添加一些自定义
+的控制元素，包括快进，快退，重新开始等，然后通过CSS用相对位置来控制。
 
 
-// ==UserScript==
-// @name         forward-and-back
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        http://javsex.net/*
-// @grant        none
-// ==/UserScript==
-
-(function() {
-    'use strict';
-    setTimeout(function(){
-     var video = document.getElementsByTagName('video')[0];
-    console.log(video);
-        document.addEventListener('keydown',function(e){
-            if(e.keyCode==37){
-                video.currentTime -= 60;
-            }
-            if(e.keyCode==39){
-                video.currentTime+=60;
-            }
-        });
-    },8000);
-    
-    // Your code here...
-})();
 -->
