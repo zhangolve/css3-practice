@@ -1,0 +1,403 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,400italic,700,700italic);
+*,*::before,*::after {
+  box-sizing: border-box;
+  /* outline: 1px dotted salmon; */
+}
+
+/* https://github.com/filamentgroup/fixed-sticky */
+.fixedsticky { 
+  position: -webkit-sticky; 
+  position: sticky; 
+  top:0;right:0;left:0;
+  z-index: 1;
+}
+/* When position: sticky is supported but native behavior is ignored */
+.fixedsticky-withoutfixedfixed .fixedsticky-off,
+.fixed-supported .fixedsticky-off {
+	position: static;
+}
+.fixedsticky-withoutfixedfixed .fixedsticky-on,
+.fixed-supported .fixedsticky-on {
+	position: fixed;
+}
+.fixedsticky-dummy {
+	display: none;
+}
+.fixedsticky-on + .fixedsticky-dummy {
+	display: block;
+}
+/** sticky header **/
+header {
+  background-color: hsla(0, 100%, 100%, 0.9);
+  padding: 1em 0;
+  text-align: center;
+}
+header:after {
+  display: block;
+  text-align: center;
+}
+.csspositionsticky header:after {
+  content: 'css position sticky is active';
+  color: #2d8f6f;
+} 
+.no-csspositionsticky header:after  {
+  content: 'NO css position sticky active, using polyfill position:fixed fallback by Filamentgroup';
+  color: red;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  background-color: #fff;
+  position: relative;
+}
+main {
+  max-width: 60em;
+  margin: 0 auto; 
+  padding-top: 1em;
+  background-color: white;
+}
+/*还是传统的设置padding-top 来让sticky的元素看起来与文档其他部分融为一体*/
+.ad img {
+  width: 100%;
+}
+/* ===== general layout and typographical styles  ===== */
+html {
+  font-size: 16px;
+}
+html,
+body {
+  height: 100%;
+  background-color: #ebf8ff;
+}
+html,
+body,
+.container {
+  background-color: #ebf8ff;
+}
+body {
+  font: 100%/1.5 "Merriweather Sans", AvenirNext-Regular,"Lucida Grande","Lucida Sans Unicode",Corbel,Tahoma,Verdana,Helvetica,sans-serif;
+  min-height: 100%;
+  color: #111;
+  font-weight: 400;
+  text-rendering: optimizeLegibility; 
+}
+h1,h2,h3,h4,em,strong,b,.ad::after {
+  font-family:  "Merriweather Sans", AvenirNextCondensed-Demibold,"Lucida Grande",Corbel,Tahoma,Verdana,Helvetica,sans-serif;
+  font-weight: 700;
+}
+h1,h2,h3,h4,em,strong {
+  color: #222;
+}
+.ad {
+  position: relative;
+  overflow: auto;
+  min-height: 48px;
+  background-color: #2d8f6f;
+  overflow: hidden;
+}
+.ad::after {
+  content: "superbanner";
+  position: absolute;
+/*   z-index: 1; */
+  top:0;right:0;bottom:0;left:0;
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  background-image: linear-gradient(to right,hsla(200, 65%, 41%,.75),hsla(100, 41%, 39%,.125));
+  color: #fff;
+  line-height: 1.25;
+  text-shadow: 1px 1px 0 #2d8f6f,2px 2px 0 #2d8f6f,3px 3px 0 #2d8f6f,6px 6px 16px hsla(0,0%,0%,.6);
+}
+i {
+  font: 100%/1.375 "Merriweather Sans", AvenirNext-Italic,AvenirNext-Regular,"Lucida Grande",Corbel,Tahoma,Verdana,Helvetica,sans-serif;
+  font-style: italic;
+}
+h1 {
+  font-size: 3em;
+  margin: 0;
+  color: #2d8f6f;
+  text-align: center;
+}
+h2,
+h3 {
+  margin: 0;
+  padding: .5em 0 0 0;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.75em;
+}
+h4 {
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.5em 0 .25em;
+}
+p strong {
+  font-size: 1.5rem;
+  margin: .25em 0 -.5em 0;
+  padding: 0;
+  display: block;
+}
+a {
+  color: #079;
+  text-decoration: none;
+}
+a:hover {
+  color: #0ac;
+  text-decoration: underline;
+}
+footer a {
+  color: #c1e4f6;
+}
+footer a:hover {
+  color: #6cf;
+}
+ul {
+  margin: .5em 0 .5em .25em;
+  padding: 0;
+  list-style: none;
+  font-size: .875em;
+  vertical-align: baseline;
+  text-indent: -.25em;
+}
+ul li {
+  position: relative;
+  z-index: 0;
+}
+ul li::before {
+  content: " \25a0";
+  font-size: .5em;
+  color: #2d8f6f;
+  position: absolute;
+  z-index: 0;
+  top:0;left:0;
+  margin-top: .85em;
+  margin-left: -1em;
+  width: 1em;
+  height: 1em;
+  font-family:  "Merriweather Sans", Verdana,"Arial Unicode MS",Arial,"Lucida Grande","Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans",Calibri,Corbel,Tahoma,Helvetica,sans-serif;
+}
+p code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  display: inline-block;
+  padding: 3px 6px 0;
+  background-color: #dff1fb;
+  color: #000;
+  font-size: .875em;
+  line-height: 1;
+}
+hr {
+  border: 3px dotted #fff;
+  padding: 1px;
+  background-color: #2d8f6f;
+}
+.entry-content  {
+  padding: 0 8% 5em;
+}
+.entry-content p {
+  padding: .5em 0;
+  margin: 0;
+  max-width: 32em;
+}
+.entry-content h3 + p,
+.entry-content h4 + p {
+  padding: 0;
+  margin: 0;
+}
+footer {
+  background-color: hsla(0,0%,0%,.75);
+  padding: .25em;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px; 
+  word-spacing: -1px;
+}
+.entry-content p:first-of-type,
+.entry-content .note {
+  border-left: 6px solid #2d8f6f;
+  padding-left: 1em;
+  font-size: 1.5em;
+}
+.entry-content p:first-of-type {
+  margin: 1em 0;
+}
+.entry-content .note {
+  margin: 2em 0;
+}
+.ios-redirect {
+  visibility: hidden;
+  height:0;
+}
+html[data-platform='iPad'] .ios-redirect,
+html[data-platform='iPod'] .ios-redirect,
+html[data-platform='iPhone'] .ios-redirect {
+  visibility: visible;
+  height: auto;
+  color: #d22d72;
+} 
+@media (min-width: 600px) {
+  .entry-content p,
+  .entry-content ul {
+    font-size: 1.25em;
+  }
+  .ad {
+    min-height: 96px;
+  }
+  .ad::after {
+    font-size: 5em;
+  }
+}
+@media (min-width: 800px) {
+  .entry-content  {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .entry-content p {
+    font-size: 1.25em;
+  }
+}
+@media (min-width: 900px) {
+  .entry-content  {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .ad {
+    min-height: 128px;
+  }
+  .ad::after {
+    font-size: 5.5em;
+  }
+}
+@media (min-width: 960px) {
+  .entry-content  {
+    padding-left: 16%;
+    padding-right: 16%;
+  }
+}
+/* 
+Name:       Base16 Atelier Lakeside Light
+Author:     Bram de Haan (https://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
+
+Prism template by Bram de Haan (https://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+ */ 
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal; 
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4; 
+  -webkit-hyphens: none; 
+      -ms-hyphens: none; 
+          hyphens: none;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background: #ebf8ff;
+  color: #516d7b;
+} 
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border: 1px solid #dff1fb;
+} 
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+} 
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7ea2b4;
+} 
+.token.punctuation {
+  color: #516d7b;
+} 
+.namespace {
+  opacity: .7;
+} 
+.token.null,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #935c25;
+}
+.token.property {
+  color: #8a8a0f;
+}
+.token.tag {
+  color: #257fad;
+}
+.token.string {
+  color: #2d8f6f;
+}
+.token.selector {
+  color: #5d5db1;
+}
+.token.attr-name {
+  color: #935c25;
+}
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #2d8f6f;
+} 
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #568c3b;
+} 
+.token.statement,
+.token.regex,
+.token.atrule {
+  color: #2d8f6f;
+} 
+.token.placeholder,
+.token.variable {
+  color: #257fad;
+} 
+.token.important {
+  color: #d22d72;
+  font-weight: bold;
+} 
+.token.entity {
+  cursor: help;
+} 
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
+del {
+  -webkit-text-decoration: stike-through;
+          text-decoration: stike-through;
+}
+
+.entry-content .mtl {
+ margin-top: 3em;
+}
+
+.entry-content .mtm {
+ margin-top: 0;
+}
+
+.entry-content .mbm {
+ margin-bottom: 0;
+}
+

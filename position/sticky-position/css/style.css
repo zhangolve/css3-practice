@@ -1,0 +1,15 @@
+h1 {
+  position: sticky;
+  position: webkit-sticky;
+  top: 10px;
+/*   z-index: -9; */
+  /*这里这行sticky还是无效的*
+  
+  /*指的是该元素，当达到视窗top 10px的位置的时候，fixed在窗口上，其他情况则依然能够relative 。*/
+  /*
+  注意h1 外围包裹不包裹一个div的区别，当包裹了一个div之后，新的h1 顶上去之后，会把老的替换调，而没有包裹的，则是会重叠在一起。
+  我的理解是，当包裹了div之后，由于p元素已经滚动到超过视窗的位置，这个时候，h1由于是跟p元素共在一个div中，这时候计算发现新的h1顶了上来，而这个div也已经走了，那么我就不再fixed在这里了。
+  /*
+  The element will scroll along with its container, until it is at the top of the container (or reaches the offset specified in top), and will then stop scrolling, so it stays visible.
+  */
+}

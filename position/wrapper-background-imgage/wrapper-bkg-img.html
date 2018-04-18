@@ -13,9 +13,9 @@
     background-image:  url(http://7ktu2f.com1.z0.glb.clouddn.com/zhou-y-p-lr.jpg);
     width:100vw;
     height:100vh;
-    position:relative;
+    /* position:relative;
     top:0;
-    left :0;
+    left :0; */
     z-index: 100;
 }
 
@@ -49,4 +49,10 @@
     在这里要注意#n1 上面不应该使用绝对定位，在这个时候第一个图片#n1还应该是留在文档流之中的。
     是不是留在文档流之中，这一点很关键。
     另外，如果使用绝对定位，这个nearest positioned ancestor 是body ，结果就起到了fixed 的效果。
+
+    我们使用#n1 相对定位是可以的，但是其实在这里，也可以不适用定位。（不适用定位默认的z-index 为0），由于#n2 的z-index 为-100,还是会建立起这种层级关系。
+    而如果我们需要再另外的新加一个层级，可能就需要对#n1 进行定位了。
+
+    还是要记住
+    1 z-index 的作用需要配合position  fixed,absolute,relative 
 -->

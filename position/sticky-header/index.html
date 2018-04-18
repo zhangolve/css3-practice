@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>position: sticky header</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  		<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="https://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+		<![endif]-->
+  <div class="ad"><!-- <img src="http://placehold.it/960x128/2d8f6f/2d8f6f" alt=""> --></div>
+<div class="container">
+  <header class="top fixedsticky" role="banner">
+    <h1>CSS3 - Position: Sticky</h1>
+    <div class="ios-redirect"><p>On iOS please check out <a href="http://bramdeh.home.xs4all.nl/playground/ui-patterns/csspositionsticky/index.html">the demo here</a> because of Codepen’s iFrame</p></div> 
+  </header>
+
+  <main role="main">
+  <div class="entry-content">
+    <p>With <code>position: sticky</code> we can finally set a container/element in a certain sticky position.</p>
+
+    <h3>A short Reminder:</h3>
+    <p>Until now webdesigners could assign the following <a href="http://dev.w3.org/csswg/css-position/#sticky-positioning" title="W3C CSS Position">positions</a> to container/elements:</p>
+    <ul>
+      <li>position: static <i>(default)</i></li>
+      <li>position: relative <i>(relative position in document order)</i></li>
+      <li>position: absolute <i>(absolute position in relative context)</i></li>
+      <li>position: fixed <i>(fixed in viewport)</i></li>
+    </ul>
+
+
+    <p>The idea to put a container/element from a specific location “sticky”, (but not before scrolling first, allowing the element to scroll along for a while, and then fix it to a certain position) has been there for quite a while in web design. I can still remember when <a href="https://twitter.com/rem" title="Remy Sharp on Twitter">@rem</a> on <a href="http://jqueryfordesigners.com/index.html%3Fp=214.html" title="Fixed Floating Elements with jquery">jqueryfordesigners.com</a> explained the inner workings for this in jQuery.</p>
+
+    <p>For some time now, there is a new CSS3 property that implements the same behavior natively in the browser. This is already enabled in Safari 6.1 and later (with <code>-webkit</code>-prefix), and also works in Safari Mobile. Chrome and Firefox (on Android) have the property currently behind a flag, Microsoft <a href="http://status.modern.ie/positionsticky">thinks about it</a>.</p>
+
+    <hr />
+    <h4>enable position: sticky in <del>Chrome/</del>Firefox</h4>
+    <p><del>in Chrome’s adressbar go to: </del><code><del>chrome://flags/#enable-experimental-web-platform-features</del></code><del> hit enter, and enable  <b>“experimental Web Platform features”</b>.</del></p>
+    <em>Chrome recently dropped support for this</em> <a href="#backInChrome">but will be back in version 56</a>
+    <p>in Firefox in the adressbar go to <code>about:config</code> hit enter, <i>(promise to be careful)</i> and search for <code>layout.css.sticky.enabled</code> : ‘double clicking’ the result will set the value to <code>true</code>.</p>
+    <hr />
+    <h3>Usage in CSS</h3>
+    <pre class="language-css"><code>
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}</code></pre>
+    <h4>Modernizr Feature Detection</h4>
+
+    <p>With Modernizr I can, with an additional integrated test, check whether the browser supports <code>position: sticky</code> or not. On the <a href="https://modernizr.com/download/">https://modernizr.com/download/</a> is the option under "Non-core Detects," from where you can check the box and generate a custom build.</p>
+
+    <p>When using <a href="https://github.com/Modernizr/grunt-modernizr" title="Grunt Modernizr Task">grunt-modernizr</a> there’s an extra option for a test with <code>tests: ['css-positionsticky']</code> in the Grunt-Config (gruntfile.js):</p>
+
+    <pre class="language-javascript">
+<code>// Build modernizr
+modernizr: {
+dist: {
+devFile: 'path/to/source/modernizr.js',
+outputFile: 'path/to/build/modernizr.min.js',
+files: {
+  src: [
+    'js/{,*/}*.js',
+    'css/{,*/}*.scss',
+    '!js/vendor/*'
+  ]
+},
+uglify: true,
+parseFiles: true,
+tests: ['css-positionsticky']
+}
+}</code></pre>
+    <p>The property can then be queried using Javascript:</p>
+    <pre class="language-javascript"><code>Modernizr.csspositionsticky; // true or false</code></pre>
+    <h2>Fallbacks and Polyfills</h2>
+
+    <p>I always tend to only set a visual behavior for browsers with full native support. Especially with responsive webdesign a fallback for <code>position: fixed</code> becomes increasingly difficult to implement, because the dynamic positions of Javascript should always be recalculated, which may of course have a negative impact on performance.</p>
+
+    <p><strong>Therefore the fallback should always be tested.</strong></p>
+
+    <p>Currently, I recommend using the sticky properties only with additional feature detected classes. So set the position (top/bottom) only together with sticky.</p>
+
+    <p><strong>Example</strong></p>
+    <pre class="language-css"><code>.sticky {
+  position: static;
+}
+.csspositionsticky .sticky {
+  position: sticky;
+  top: 20em;
+}</code></pre>
+    <h3>Polyfill:</h3>
+
+    <p>The Filamentgroup has posted a <a href="https://github.com/filamentgroup/fixed-sticky" title="position: sticky polyfill">Polyfill</a> for <code>position: sticky</code> which implements the behavior for browsers that do not support the property.</p>
+
+    <p>When needed one can load the polyfill via Modernizr.load</p>
+
+    <pre class="language-javascript"><code>Modernizr.load({
+test: Modernizr.csspositionsticky,
+nope: 'fixedsticky.js'
+});</code></pre>
+
+    <p class="note"><em>Note: in Modernizr 3.0 will Modernizr.load (which under the hood is “yepnope”) be dissolved again; use <a href="http://yepnopejs.com/" title="yepnope, asynchronous conditional resource loader">yepnope</a> then</em>.</p> 
+
+    <!-- <h2>Demo: Sticky Header</h2> -->
+    <!-- <p data-height="335" data-theme-id="0" data-slug-hash="aKyAg" data-default-tab="result" class='codepen'>See the Pen <a href='https://codepen.io/maddesigns/pen/aKyAg/'>position: sticky header</a> by Sven Wolfermann (<a href='https://codepen.io/maddesigns'>@maddesigns</a>) on <a href='https://codepen.io'>CodePen</a>.</p>
+    <p>  -->
+
+    <p>I hope, Chrome and Firefox will release the property soon - leaving us with missing only IE &hellip;</p>
+   
+   <p class="mtl mbm"><strong>NOTE:</strong> Edit Bram de Haan (december 2016): </p>
+   <p id="backInChrome" class="note mtm">added back into Chrome from <a href="https://www.chromestatus.com/feature/6190250464378880">Version 56</a> onward &hellip;</p>
+
+  </div>
+  </main>
+  <footer role="contentinfo">
+    <p class='codepen'>Translated from <a href="http://maddesigns.de/css3-position-sticky-2279.html">article in german</a>, by Sven Wolfermann, (<a href='https://codepen.io/maddesigns'>@maddesigns</a>) on <a href='https://codepen.io/maddesigns/pen/aKyAg/'>CodePen</a>.</p>
+  </footer>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='http://filamentgroup.github.io/fixed-sticky/bower_components/filament-fixed/fixedfixed.js'></script>
+<script src='http://filamentgroup.github.io/fixed-sticky/fixedsticky.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
