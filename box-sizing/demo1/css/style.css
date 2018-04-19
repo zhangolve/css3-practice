@@ -1,0 +1,23 @@
+/* 最简单的border box 的demo*/
+/*将border 也算在这个div的整个宽度中来计算*/
+div {
+  float: left;
+  box-sizing: border-box;
+}
+
+.a1 {
+  width: 30%;
+  border: 10px solid black;
+  height:300px;
+}
+.a2 {
+  width: 40%;
+  border: 10px solid black;
+  height:300px;
+}
+
+.a3 {
+  width: 30%;
+  border: 10px solid black;
+  height:300px;
+}
