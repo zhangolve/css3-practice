@@ -1,0 +1,43 @@
+<!--
+20181105
+png格式的图片，图片本身不能够通过背景颜色来覆盖原始的背景
+而svg格式的图片，图片背景可以由CSS指定
+
+在这里还有个小知识点，vertical-align:middle 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test bng background</title>
+</head>
+<body>
+    <style>
+        .img-wrapper {
+            background: green;
+            width: 900px;
+            height: 800px;
+        }
+        .text {
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            height: 400px;
+        }
+        img {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+    <div class="img-wrapper">
+        <img src="./d-1400580700000-F-400x400.png">
+        <img src="./phone-call.svg">
+        <div class="text">
+            hello world
+        </div>
+    </div>
+</body>
+</html>
