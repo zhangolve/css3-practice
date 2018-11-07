@@ -1,0 +1,41 @@
+<!--20181107-->
+<!--
+    仿淘宝登录，切换二维码登录和密码登录图标
+    三角形的css见https://www.cnblogs.com/lhb25/p/css-and-css3-triangle.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper {
+        background-image: url('./desktop.svg');
+        height: 300px;
+        width: 300px;
+        background-clip: border-box;
+        background-size: 300px 300px;
+        background-repeat: no-repeat;
+    }
+    .trangle {
+        position: relative;
+        top: 50px;
+        border-bottom: 300px solid #fff;
+        border-right: 160px solid transparent;
+        z-index: 100;
+        width: 0;
+        height: 0;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div class="trangle">
+
+        </div>
+    </div>
+</body>
+</html>
