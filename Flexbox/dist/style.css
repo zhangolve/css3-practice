@@ -1,0 +1,25 @@
+ul {
+  display: flex;
+  border: 1px solid blue;
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+  padding:0 10px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid red;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  max-width: 80%;
+}
